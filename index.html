@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="原创超大型拼豆壁画与立体拼豆潮玩图纸。" />
+    <title>豆阵｜原创拼豆工程图纸</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="#top"><i>●</i> 豆阵 <small>PIXEL ASSEMBLY</small></a>
+      <nav><a href="#works">图纸库</a><button data-open-modal>兑换图纸</button></nav>
+    </header>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">ORIGINAL BEADWORK <span>01 / 03</span></p>
+          <h1>把一面墙<br />拼成你的世界。</h1>
+          <p class="intro">原创超大型拼豆壁画与可背的立体拼豆潮玩。每一张图纸，都已拆成可完成的工程。</p>
+          <a class="primary" href="#works">浏览图纸</a>
+        </div>
+        <div class="hero-image"><img src="assets/azure-dragon.png" alt="苍龙镇海拼豆壁画" /><b>8 × 12<br />BOARD MAP</b></div>
+      </section>
+      <section class="promise">
+        <p><b>完整拆分</b>总览、分区、组件顺序</p>
+        <p><b>原创可售</b>只收录自有或获授权作品</p>
+        <p><b>在线制作</b>按板定位，完成即打钩</p>
+      </section>
+      <section class="works" id="works">
+        <p class="eyebrow">首批作品 <span>03 件</span></p>
+        <h2>不是小挂件。<br />是作品。</h2>
+        <div class="filters" aria-label="图纸类型筛选">
+          <button class="selected" data-filter="all">全部</button>
+          <button data-filter="mural">巨幅壁画</button>
+          <button data-filter="bag">立体潮玩</button>
+        </div>
+        <div class="grid">
+          <button class="card" data-type="mural" data-name="苍龙镇海" data-size="90 × 135 cm" data-boards="8 × 12 块板" data-price="¥59.9" data-image="assets/azure-dragon.png"><img src="assets/azure-dragon.png" alt="苍龙镇海" /><span>巨幅壁画 · 90 × 135 cm</span><strong>苍龙镇海</strong><em>8 × 12 块板 <i>¥59.9</i></em></button>
+          <button class="card" data-type="mural" data-name="雨后青嶂" data-size="68 × 90 cm" data-boards="6 × 8 块板" data-price="¥49.9" data-image="assets/verdant-peaks.png"><img src="assets/verdant-peaks.png" alt="雨后青嶂" /><span>巨幅壁画 · 68 × 90 cm</span><strong>雨后青嶂</strong><em>6 × 8 块板 <i>¥49.9</i></em></button>
+          <button class="card" data-type="bag" data-name="霓虹白虎手机包" data-size="12 × 19 × 4 cm" data-boards="6 个组件" data-price="¥29.9" data-image="assets/tiger-phone-bag.png"><img src="assets/tiger-phone-bag.png" alt="霓虹白虎手机包" /><span>立体潮玩 · 12 × 19 × 4 cm</span><strong>霓虹白虎手机包</strong><em>6 个组件 <i>¥29.9</i></em></button>
+        </div>
+      </section>
+      <section class="detail" aria-live="polite">
+        <img id="detail-image" src="assets/azure-dragon.png" alt="苍龙镇海" />
+        <div><p class="eyebrow" id="detail-type">巨幅壁画 <span>原创作品</span></p><h2 id="detail-name">苍龙镇海</h2><p>这件作品提供总览、按板或组件拆分的制作图、颜色统计与制作顺序。正式购买后将在个人制作台内解锁。</p><dl><div><dt>最终尺寸</dt><dd id="detail-size">90 × 135 cm</dd></div><div><dt>拼板 / 组件</dt><dd id="detail-boards">8 × 12 块板</dd></div></dl><button class="primary" data-open-modal>购买后兑换</button></div>
+      </section>
+    </main>
+    <div class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title"><section><button class="close" data-close-modal aria-label="关闭">×</button><p class="eyebrow">兑换图纸 <span>PREVIEW</span></p><h2 id="modal-title">把作品放进账户。</h2><p>网站展示已上线。正式版将接入外部虚拟商品付款和一次性兑换码。</p><button class="primary" data-close-modal>知道了</button></section></div>
+    <footer>豆阵 · 原创拼豆工程图纸 · 仅售作品图纸，不含材料</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
