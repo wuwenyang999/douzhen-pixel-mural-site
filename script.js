@@ -9,6 +9,7 @@ const modal = document.querySelector('.modal');
 const store = window.createDemoStore(window.localStorage);
 const account = document.querySelector('#mine');
 const ownedContent = document.querySelector('#owned-content');
+let activeSection = 'A01';
 
 document.querySelectorAll('.card').forEach((card) => {
   card.addEventListener('click', () => {
@@ -44,8 +45,10 @@ function renderMine() {
   const sections = ['A01 龙首', 'A02 云层', 'A03 龙身'];
   const completed = store.getCompletedSections('azure-dragon');
   const percent = Math.round((completed.length / sections.length) * 100);
-  ownedContent.innerHTML = `<article class="owned-card"><img src="assets/azure-dragon.png" alt="苍龙镇海"><div class="owned-copy"><p class="eyebrow">巨幅壁画 <span>${percent}% 完成</span></p><h3>苍龙镇海</h3><p>按分区逐块完成，进度会保留在当前浏览器。</p><div class="progress"><i style="width:${percent}%"></i></div><div class="sections">${sections.map((section) => { const id = section.slice(0, 3); return `<button class="${completed.includes(id) ? 'done' : ''}" data-section="${id}">${completed.includes(id) ? '✓ ' : ''}${section}</button>`; }).join('')}</div></div></article>`;
+  const grid = store.getSectionGrid('azure-dragon', activeSection);
+  ownedContent.innerHTML = `<article class="owned-card"><img src="assets/azure-dragon.png" alt="苍龙镇海"><div class="owned-copy"><p class="eyebrow">巨幅壁画 <span>${percent}% 完成</span></p><h3>苍龙镇海</h3><p>按分区逐块完成，进度会保留在当前浏览器。</p><div class="progress"><i style="width:${percent}%"></i></div><div class="sections">${sections.map((section) => { const id = section.slice(0, 3); return `<button class="${completed.includes(id) ? 'done' : ''}" data-section="${id}">${completed.includes(id) ? '✓ ' : ''}${section}</button>`; }).join('')}</div></div></article><section class="grid-paper"><div><p class="eyebrow">分区色块图 <span>${activeSection} · 10 × 10</span></p><h3>${sections.find((section) => section.startsWith(activeSection))}</h3><p>每个色块代表一颗拼豆；正式图纸会按真实拼板拆分并附色号。</p><div class="grid-tabs">${sections.map((section) => { const id = section.slice(0, 3); return `<button class="${id === activeSection ? 'active' : ''}" data-view-section="${id}">${section}</button>`; }).join('')}</div></div><div class="bead-grid" style="grid-template-columns:repeat(${grid.columns},1fr)">${grid.cells.map((color, index) => `<span style="background:${color}" title="${activeSection}-${String(index + 1).padStart(2, '0')}"></span>`).join('')}</div></section>`;
   ownedContent.querySelectorAll('[data-section]').forEach((button) => button.addEventListener('click', () => { store.toggleSection('azure-dragon', button.dataset.section); renderMine(); }));
+  ownedContent.querySelectorAll('[data-view-section]').forEach((button) => button.addEventListener('click', () => { activeSection = button.dataset.viewSection; renderMine(); }));
 }
 
 document.querySelectorAll('[data-open-mine]').forEach((button) => button.addEventListener('click', () => { renderMine(); account.hidden = false; account.scrollIntoView({ behavior: 'smooth' }); }));
